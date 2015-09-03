@@ -1,0 +1,5 @@
+[package]
+name = "mcmuch-rust-website"
+version = "0.0.0"
+authors = ["Skye M. <skyem@hotmail.co.uk>"]
+
