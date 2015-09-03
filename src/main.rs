@@ -1,10 +1,18 @@
 extern crate iron;
+extern crate mount;
+extern crate staticfile;
+
+use std::path::Path;
 
 use iron::prelude::*;
-use iron::status;
+
+use mount::Mount;
+use staticfile::Static;
 
 fn main() {
-	Iron::new(|req: &mut Request| {
-		Ok(Response::with((status::Ok, "Hello World!")))
-	}).http("localhost:3000").unwrap();
+	let mut mount = Mount::new();
+
+	mount.mount("/", Static::new(Path::new("pages/")));
+
+	Iron::new(mount).http("localhost:3000").unwrap();
 }
