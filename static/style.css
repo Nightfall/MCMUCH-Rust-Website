@@ -1,0 +1,13 @@
+ .mdl-layout__header-row {
+	 padding-left: 40px;
+}
+
+.mdl-layout__content {
+	border-radius: 2px;
+	padding: 35px 35px;
+	margin-bottom: 0px;
+}
+
+.mdl-layout.is-small-screen .mdl-layout__content{
+	padding: 10px 10px;
+}
