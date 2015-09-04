@@ -7,3 +7,4 @@ authors = ["Skye M. <skyem@hotmail.co.uk>"]
 iron = "*"
 staticfile = "*"
 mount = "*"
+term = "*"
