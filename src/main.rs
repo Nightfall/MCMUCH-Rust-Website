@@ -16,7 +16,7 @@ fn main() {
 	console::welcome();
 
 	let mut mount = Mount::new();
-	mount.mount("/", Static::new(Path::new("pages/")));
+	mount.mount("/", Static::new(Path::new("static/")));
 
 	Iron::new(mount).http("localhost:3000").unwrap();
 }
