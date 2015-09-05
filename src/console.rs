@@ -16,5 +16,7 @@ pub fn welcome() {
 	                                   "Idea from RiskyKen, VicNightfall, and skyem123.\n\
 									    Experimental server by skyem123.\n\
 									    API by RX14 and StrikingWolf, with encouragement from trajing.\n\
-									    This webserver by skyem123.\n");
+									    This webserver by skyem123.\n\
+										\n\
+										This server uses the Iron web framework, and is written in Rust.\n");
 }
