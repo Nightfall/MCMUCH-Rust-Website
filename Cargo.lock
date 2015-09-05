@@ -1,6 +1,6 @@
 [root]
 name = "mcmuch-rust-website"
-version = "0.0.0"
+version = "0.0.1"
 dependencies = [
  "handlebars-iron 0.8.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "iron 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
