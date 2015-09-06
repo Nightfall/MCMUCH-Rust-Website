@@ -1,11 +1,13 @@
 extern crate iron;
 extern crate mount;
 extern crate staticfile;
+extern crate logger;
 
 use std::path::Path;
 use std::env;
 
 use iron::prelude::*;
+use logger::Logger;
 
 use mount::Mount;
 use staticfile::Static;
@@ -23,7 +25,12 @@ fn main() {
 	let mut mount = Mount::new();
 	mount.mount("/", Static::new(Path::new("static/")));
 
+	// Create the middleware chain for logging
+	let mut chain = Chain::new(mount);
+	chain.link(Logger::new(None));
+
 	// Start the server
-	println!("Starting server on {}...\n(press <ctrl>+'C' to stop server)", address);
-	Iron::new(mount).http(address).unwrap();
+	let mut server = Iron::new(chain);
+	println!("Starting server on {}...\n(press <ctrl>+'C' to stop server)\n", address);
+	server.http(address).unwrap();
 }
