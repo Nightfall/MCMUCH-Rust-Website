@@ -2,6 +2,8 @@ extern crate iron;
 extern crate mount;
 extern crate staticfile;
 extern crate logger;
+extern crate handlebars_iron;
+extern crate rustc_serialize;
 
 use std::path::Path;
 use std::env;
@@ -13,6 +15,7 @@ use mount::Mount;
 use staticfile::Static;
 
 mod console;
+mod pages;
 
 fn main() {
 	// Print a welcome message
@@ -24,6 +27,7 @@ fn main() {
 	// Create the layout
 	let mut mount = Mount::new();
 	mount.mount("/", Static::new(Path::new("static/")));
+	mount.mount("/test", pages::pages());
 
 	// Create the middleware chain for logging
 	let mut chain = Chain::new(mount);
