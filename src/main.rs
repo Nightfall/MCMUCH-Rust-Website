@@ -3,6 +3,7 @@ extern crate mount;
 extern crate staticfile;
 extern crate logger;
 extern crate handlebars_iron;
+extern crate serde_json;
 extern crate rustc_serialize;
 
 use std::path::Path;
@@ -16,6 +17,7 @@ use staticfile::Static;
 
 mod console;
 mod pages;
+mod helpers;
 
 fn main() {
 	// Print a welcome message
@@ -34,7 +36,7 @@ fn main() {
 	chain.link(Logger::new(None));
 
 	// Start the server
-	let mut server = Iron::new(chain);
+	let server = Iron::new(chain);
 	println!("Starting server on {}...\n(press <ctrl>+'C' to stop server)\n", address);
 	server.http(address).unwrap();
 }
