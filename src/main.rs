@@ -5,6 +5,7 @@ extern crate logger;
 extern crate handlebars_iron;
 extern crate serde_json;
 extern crate rustc_serialize;
+extern crate router;
 
 use std::path::Path;
 use std::env;
@@ -18,6 +19,7 @@ use staticfile::Static;
 mod console;
 mod pages;
 mod helpers;
+mod content;
 
 fn main() {
 	// Print a welcome message
@@ -28,8 +30,9 @@ fn main() {
 
 	// Create the layout
 	let mut mount = Mount::new();
-	mount.mount("/", Static::new(Path::new("static/")));
-	mount.mount("/test", pages::pages());
+	mount.mount("/static", Static::new(Path::new("static/")));
+	mount.mount("/", pages::pages());
+
 
 	// Create the middleware chain for logging
 	let mut chain = Chain::new(mount);
