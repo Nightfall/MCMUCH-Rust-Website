@@ -14,8 +14,8 @@ use content;
 pub fn make_simple_content(title: String, content: String) -> Value {
 	return ObjectBuilder::new()
 		.insert("title".to_string(), title)
-		.insert("content".to_string(), content);
-	return object.unwrap();
+		.insert("content".to_string(), content)
+		.unwrap();
 }
 
 pub fn pages() -> Chain {
