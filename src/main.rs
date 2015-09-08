@@ -19,7 +19,6 @@ use staticfile::Static;
 mod console;
 mod pages;
 mod helpers;
-mod content;
 
 fn main() {
 	// Print a welcome message
@@ -33,7 +32,7 @@ fn main() {
 	mount.mount("/styles", Static::new(Path::new("styles/")));
 	mount.mount("/images", Static::new(Path::new("images/")));
 	mount.mount("/favicon.ico", Static::new(Path::new("images/favicon.ico")));
-	mount.mount("/", pages::pages());
+	mount.mount("/", pages::handle());
 
 	// Create the middleware chain for logging
 	let mut chain = Chain::new(mount);
