@@ -30,9 +30,10 @@ fn main() {
 
 	// Create the layout
 	let mut mount = Mount::new();
-	mount.mount("/static", Static::new(Path::new("static/")));
+	mount.mount("/styles", Static::new(Path::new("styles/")));
+	mount.mount("/images", Static::new(Path::new("images/")));
+	mount.mount("/favicon.ico", Static::new(Path::new("images/favicon.ico")));
 	mount.mount("/", pages::pages());
-
 
 	// Create the middleware chain for logging
 	let mut chain = Chain::new(mount);

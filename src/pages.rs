@@ -12,7 +12,7 @@ use helpers::value_to_json;
 use content;
 
 pub fn make_simple_content(title: String, content: String) -> Value {
-	let object = ObjectBuilder::new()
+	return ObjectBuilder::new()
 		.insert("title".to_string(), title)
 		.insert("content".to_string(), content);
 	return object.unwrap();
