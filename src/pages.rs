@@ -19,10 +19,6 @@ pub fn make_simple_content(title: String, content: String) -> Value {
 		.unwrap();
 }
 
-fn listPages() ->  {
-
-}
-
 pub fn handle() -> Chain {
 	// Make the layout
 	let mut router = Router::new();
